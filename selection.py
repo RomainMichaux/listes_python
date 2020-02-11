@@ -1,8 +1,4 @@
-from random import *
-
-liste = []
-for i in range(20):
-  x = randint(0, 20)
+ x = randint(0, 20)
   liste.append(x)
 print(liste)
 
@@ -16,10 +12,12 @@ def minimum(liste):
     indice+=1
   return indice_mini
 
-print(minimum(liste))
+def selection(liste):
+  i =0
+  for i in range(len(liste[i:])):
+    indice_plus_petit = minimum(liste[i:])
+    liste[i], liste[indice_plus_petit+i] = liste[indice_plus_petit+i], liste[i]
+  return liste
 
-indice_plus_petit = minimum(liste)
-liste[0], liste[indice_plus_petit] = liste[indice_plus_petit], liste[0]
 
-
-print(liste)
+print(selection(liste))
